@@ -1,0 +1,48 @@
+S.No,Course Id,Course Name,Mentor Name,Mentor Email,Exam date
+1,noc19-ee01,Electrical Machines - II,Abhijeet Lal,abhijeetlal15@gmail.com,2019-04-27
+2,noc19-ee09,Digital Electronic Circuits,Dr. Abhishek Verma,abhishek.vjti@gmail.com,2019-04-27
+3,noc19-ee07,Principles of Signals and Systems,Abhishek kumar Agrawal,abhisheknanu29@gmail.com,2019-04-28
+4,noc19-ee30,Control engineering,Abhishek kumar Agrawal,abhisheknanu29@gmail.com,2019-04-27
+5,noc19-cs01,Compiler Design,AMIT KUMAR BISWAS,amit.biswas@bitdurg.ac.in,2019-04-27
+6,noc19-hs20,Employment Communication A Lab based course,Anjana,anjana.sekhar@bitdurg.ac.in,2019-04-28
+7,noc19-ee10,Analog Circuits,Anupama Huddar,aphuddar74@gmail.com,2019-03-31
+8,noc19-cs15,Data Mining,ARPANA RAWAL,arpana.rawal@gmail.com,2019-04-27
+9,noc19-cs10,Programming In C++,B VARGHESE,bvarghese.bit@gmail.com,2019-03-31
+10,noc19-cs26,Blockchain Architecture Design and Use Cases,Chaitali Choudhary,chaitali.choudhary@gmail.com,2019-04-28
+11,noc19-me21,Product Design and Development,DEVESH SHRIVASTAVA,devesh.mech@gmail.com,2019-03-31
+12,noc19-cs10,Programming In C++,DINESH KUMAR BHAWNANI,dinu1983@gmail.com,2019-03-31
+13,noc19-cs13,Data Science for Engineers,DINESH KUMAR BHAWNANI,dinu1983@gmail.com,2019-03-31
+14,noc19-me13,Concepts of Thermodynamics,jaysingh gaharwar,gaharwarjaysingh23@gmail.com,2019-04-28
+15,noc19-me01,Engineering Mechanics - Statics and Dynamics,SHUBHRATA NAGPAL,godshubh@gmail.com,2019-03-31
+16,noc19-cs03,Computer Architecture and Organisation,KAULESHWAR PRASAD,kauleshwarprasad@gmail.com,2019-04-28
+17,noc19-cs11,Design and Analysis of Algorithms,Kaushal Kumar Sinha,kaushal.sinha16@gmail.com,2019-03-31
+18,noc19-ee07,Principles of Signals and Systems,Kiran Dewangan,kiran.dewangan@bitdurg.ac.in,2019-04-28
+19,noc19-hs22,Enhancing Soft Skills and Personality,Madhurima Pandey,madhurima.pandey@bitdurg.ac.in,2019-04-27
+20,noc19-me10,IC Engines and Gas Turbines,Manish Kumar,manish.pandey@bitdurg.ac.in,2019-04-27
+21,noc19-me12,Thermodynamics,M. K. Pal,manoj.pal@bitdurg.ac.in,2019-04-27
+22,noc19-me29,Kinematics of Mechanisms and Machines,Dr. Mukesh Dubey,mdubey1975@gmail.com,2019-03-31
+23,noc19-cs33,Big Data Computing,MONIKA VERMA,monika04verma@gmail.com,2019-04-27
+24,noc19-mg28,Marketing Management - II,Judith gOMES,nagarjudith@gmail.com,2019-03-31
+25,noc19-cs06,Problem solving through Programming In C,NEERAJ KHARYA,neeraj.kharya@bitdurg.ac.in,2019-04-27
+26,noc19-cs05,Discrete Mathematics,NIRMAL KUMAR SINGH,nirmal1971singh@gmail.com,2019-04-27
+27,noc19-cs07,Programming in Java,PARTHA ROY,patsroy@gmail.com,2019-04-28
+28,noc19-cs06,Problem solving through Programming In C,Prabhakar,prabhuelexstar@gmail.com,2019-04-27
+29,noc19-ee11,Microprocessors And Microcontrollers,REYNOLDS,reynoldsnitrr@gmail.com,2019-04-27
+30,noc19-cs31,Introduction to Internet of Things,Sargam Gupta,sargamgupta1610@gmail.com,2019-04-27
+31,noc19-ee11,Microprocessors And Microcontrollers,SUREKHA BHUSNUR,sbhusnur19@gmail.com,2019-04-27
+32,noc19-cs31,Introduction to Internet of Things,SHIV DUTTA MISHRA,sdmishra1982@gmail.com,2019-04-27
+33,noc19-cs32,Introduction to Industry 4.0 and Industrial Internet of Things,SHIV DUTTA MISHRA,sdmishra1982@gmail.com,2019-04-28
+34,noc19-cs19,AI:Knowledge Representation and Reasoning,SHANKHA DE,shankhada2009@gmail.com,2019-04-27
+35,noc19-ee08,Principles of Communication Systems - I,Vinni Sharma,sharma.vinni@gmail.com,2019-04-28
+36,noc19-me20,Manufacturing Process Technology,Dr (Mrs) Shiena Shekhar,shiena.shekhar@bitdurg.ac.in,2019-04-28
+37,noc19-me25,Inspection and Quality Control in Manufacturing,Dr (Mrs) Shiena Shekhar,shiena.shekhar@bitdurg.ac.in,2019-04-27
+38,noc19-ee02,Power System Engineering,SHRADDHA KAUSHIK,shraddha.kaushik01@gmail.com,2019-04-27
+39,noc19-cs12,Data Base Management System,shweta kharya,shweta.bitdurg@gmail.com,2019-04-27
+40,noc19-cs27,Cloud Computing,shweta kharya,shweta.bitdurg@gmail.com,2019-04-27
+41,noc19-cs35,"Machine Learning,ML",Sumit Kumar Sar,sumitsar@gmail.com,2019-04-28
+42,noc19-cs28,Cryptography and Network Security,sunita soni,sunitasoni74@gmail.com,2019-04-27
+43,noc19-hs19,Better Spoken English,Swapna Sarkar,swapna.sarkar1979@gmail.com,2019-04-28
+44,noc19-hs21,Speaking Effectively,Swapna Sarkar,swapna.sarkar1979@gmail.com,2019-03-31
+45,noc19-cs09,Joy of computing using Python,SWATI DEWANGAN,swatidwngn789@gmail.com,2019-04-28
+46,noc19-cs14,Machine Learning for Engineering and Science Applications,SWATI DEWANGAN,swatidwngn789@gmail.com,2019-04-28
+47,noc19-cs08,"Programming, Data Structures and Algorithms using Python",Vinita Abhishek Gupta,vinita.gupta@bitdurg.ac.in,2019-03-31
