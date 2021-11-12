@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Local Chapter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="../public/course.css"/>
+    <!-- semantic UI -->
+    <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../charts/barchart.js"></script>
+    <script src="../charts/piechart.js"></script>
+    <script src="../javascripts/topCourses.js"></script>
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">SWAYAM NPTEL<br> <span style="font-size:14px;">Local Chapter</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Enrolments<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FDP
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mentor's Directory
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">NPTEL Stars
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Course 1</a>
+                        <a class="dropdown-item" href="#">Course 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Course 3</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-1">
+                <input class="form-control mr-sm-4" type="search" placeholder="Looking for.." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:15px;">Search</button>
+            </form>
+            <button type="button" class="btn btn-danger">Logout</button>
+        </div>
+</nav>
+    <!--navbar end-->
+    <!--SIde card-->
+    
+    <div class="alert alert-success" role="alert">
+        Login Succesful!
+    </div>
+    <div class="wrapper" style="float: left;width:100%">
+        
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="../public/user.png" class="card-img-top" alt="Mentor">
+            <div class="card-body">
+                {{#each data}}
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.CollegeName}}</p>
+                {{/each}}
+            </div>
+            <ul class="list-group list-group-flush " style="color: black;">
+                <li class="list-group-item"><a href="#">SPOC Timeline</a></li>
+                <li class="list-group-item"><a href="#">SPOC Conference Support Request</a></li>
+                <li class="list-group-item"><a href="#">Exam City Request</a></li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Email-Id</a>
+                <a href="#" class="card-link">Find Here</a>
+            </div>
+</div>
+        <div class="card text-center" style="float:right; position:absolute;top:25%;left:25%;height:90%;width:90%; margin-left:0px;">
+        <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Jan-Jun 2019</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">July-Dec 2019</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jan-Jun 2018</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">July-Dec 2018</a>
+                    </li>
+                </ul>
+</div>
+            <div class="card-body">
+                <div class="top_button">
+                    <button type="button" id="topCoursesButton" class="btn btn-primary" onclick="topCourses()" >View Top Courses</button>
+                </div>
+                 <div id="columnchart_material" style="float: left; width: 500px; height: 500px;"></div>
+                 <div id="donutchart" style="float:left; width: 600px; height: 500px;"></div>
+            </div>
+
+</html>
+
+</div>
+</div>
+</div>
+
+<!--side card end-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

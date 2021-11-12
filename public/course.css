@@ -1,0 +1,10 @@
+.top_button button {
+    height: 40px;
+    width: 150px;
+    left: 300px;
+    position: relative;
+}
+
+.top_button {
+    margin-right: 10px;
+}
