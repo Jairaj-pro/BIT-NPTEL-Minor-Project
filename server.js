@@ -8,12 +8,13 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const { v4: uuidv4 } = require("uuid");
 const router = require('./router')
-app.set('view engine', 'hbs')
+app.set('view engine', 'ejs')
 app.use("/public", express.static(path.join(__dirname, 'public')))
 app.use('/charts', express.static(path.join(__dirname, 'charts')))
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use("/javascripts", express.static(path.join(__dirname, "javascripts")))
+
 
 //creating connection to mysql
 const db = mysql.createConnection({
@@ -30,7 +31,9 @@ app.use(session({
 }))
 
 
-app.listen(port)
+app.listen(port, () => {
+    console.log("listening on port " + port)
+});
 
 //connecting to database
 db.connect((err) => {
@@ -61,23 +64,50 @@ app.use('/route', router)
 //home route
 app.get('/', (req, res) => {
     res.render('./base', {
-        title: "Login System"
+        title: "Login System",
     })
 
 })
-
+let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
+let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
 app.get('/spoc-home', (req, res) => {
     // pie.drawChart(newArray)
-    let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
-    db.query(sql, (err, rows, columns) => {
+    db.query(sql, (err, rows, col) => {
         if (err) {
             throw err
-
         }
+        out1 = rows
+    })
+    db.query(sql2, (err, rows, col) => {
+        if (err) {
+            throw err
+        }
+        out2 = rows
         res.render('./course', {
-            data: rows,
+            'data': out1,
+            'out2': out2,
+            list: [
+                [JSON.stringify('Year'), JSON.stringify('Enrollments'), JSON.stringify('Registrations'), JSON.stringify('Succesful-Completion')],
+                [JSON.stringify('July-2019'), 1000, 400, 200],
+                [JSON.stringify('Jan-2019'), 1170, 460, 250],
+                [JSON.stringify('July-2018'), 1120, 660, 300],
+                [JSON.stringify('Jan-2018'), 1030, 540, 350]
+            ],
+            list2: [
+                [JSON.stringify('Department'), JSON.stringify('Succesfull Completion')],
+                [JSON.stringify('CSE'), 11],
+                [JSON.stringify('IT'), 2],
+                [JSON.stringify('ETC'), 2],
+                [JSON.stringify('EEE'), 2],
+                [JSON.stringify('Mechanical'), 7]
+            ]
         })
     })
+})
+
+
+app.get('/dspoc-home', (req, res) => {
+    res.render('./dspoc')
 })
 
 //create table
@@ -108,6 +138,7 @@ app.get("/insert", (req, res) => {
     })
 })
 
+//top courses
 app.get('/topCourses', (req, res) => {
     // pie.drawChart(newArray)
     let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
@@ -130,4 +161,13 @@ app.get('/topCourses', (req, res) => {
             courses: rows
         })
     })
+})
+
+//nptel stars 
+app.get('/stars', (req, res) => {
+    res.render('./stars.hbs')
+})
+
+app.get('/echos', (req, res) => {
+    res.render('./echos.hbs')
 })

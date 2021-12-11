@@ -1,0 +1,17 @@
+.card {
+    margin-top: 20px;
+}
+
+.box {
+    float: right;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    height: 100%;
+    width: 90%;
+    margin-left: 0px;
+}
+
+.page-item {
+    margin: 5px;
+}
