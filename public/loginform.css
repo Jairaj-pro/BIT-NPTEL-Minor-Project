@@ -1,14 +1,66 @@
 form {
     position: absolute;
-    border: 2px solid black;
-    width: 50%;
+    top: 5%;
+    left: 35%;
+    width: 30%;
     height: 100%;
     padding: 30px;
-    left: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #exampleInputEmail1,
 #exampleInputPassword1 {
-    width: 50%;
-    position: absolute;
+    width: 100%;
+    border: none;
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+}
+
+.email-input,
+.password-input {
+    margin-bottom: 20px;
+}
+
+img {
+    height: 150px;
+    margin-left: 94px;
+}
+
+.user-image h3 {
+    color: rgb(173, 104, 48);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button {
+    background-color: rgb(173, 104, 48);
+    color: white;
+    float: left;
+    height: 50px;
+    width: 100px;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 2px;
+}
+
+button:hover {
+    background-color: white;
+    border: 1px solid rgb(173, 104, 48);
+    transition: 0.5s;
+    color: rgb(173, 104, 48);
+}
+
+.form-check {
+    float: left;
+    margin-right: 10px;
+}
+
+.role {
+    margin-bottom: 10px;
+}
+
+#submit-button {
+    margin-top: 40px;
 }

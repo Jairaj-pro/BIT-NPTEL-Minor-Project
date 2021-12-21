@@ -8,3 +8,17 @@
 .top_button {
     margin-right: 10px;
 }
+
+#spoc-pic {
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 200px;
+}
+
+#topCoursesButton {
+    height: 40px;
+}
+
+.btn-close {
+    border: none;
+}

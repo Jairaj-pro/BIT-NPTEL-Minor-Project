@@ -70,6 +70,7 @@ app.get('/', (req, res) => {
 })
 let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
 let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
+let seasons = "SELECT season FROM bitnptel.seasons_added order by season desc;"
 app.get('/spoc-home', (req, res) => {
     // pie.drawChart(newArray)
     db.query(sql, (err, rows, col) => {
@@ -83,9 +84,16 @@ app.get('/spoc-home', (req, res) => {
             throw err
         }
         out2 = rows
+    })
+    db.query(seasons, (err, rows, col) => {
+        if (err) {
+            throw err
+        }
+        out3 = rows
         res.render('./course', {
             'data': out1,
             'out2': out2,
+            'season': out3,
             list: [
                 [JSON.stringify('Year'), JSON.stringify('Enrollments'), JSON.stringify('Registrations'), JSON.stringify('Succesful-Completion')],
                 [JSON.stringify('July-2019'), 1000, 400, 200],
@@ -165,9 +173,19 @@ app.get('/topCourses', (req, res) => {
 
 //nptel stars 
 app.get('/stars', (req, res) => {
-    res.render('./stars.hbs')
+    res.render('./stars.ejs')
 })
 
+//echos directory
 app.get('/echos', (req, res) => {
-    res.render('./echos.hbs')
+    let sql = "SELECT * FROM bitnptel.echos;";
+    db.query(sql, (err, rows, cols) => {
+        if (err) {
+            throw err
+        }
+        console.log(rows[0]);
+        console.log(cols)
+        res.render('./echos.ejs', { rows: rows, cols: cols })
+    })
+
 })
