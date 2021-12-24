@@ -60,7 +60,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Courses
+                Disciplines
               </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Course 1</a>
@@ -74,7 +74,13 @@
                 <input class="form-control mr-sm-4" type="search" placeholder="Looking for.." aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-right:15px;">Search</button>
             </form>
-            <button type="button" class="btn btn-danger">Logout</button>
+            <div class="submit-button">
+                <button type="button" class="btn btn-success" aria-expanded="false">
+                  Login
+                </button>
+              </div>
+               
+              </div>
         </div>
     </nav>
     <!--navbar end-->
@@ -102,10 +108,9 @@
                     </p>
                     <% }); %>
             </div>
-            <ul class="list-group list-group-flush " style="color: black;">
-                <li class="list-group-item"><a href="#">Local Chapter Statistics</a></li>
-                <li class="list-group-item"><a href="#">Discipline Wise Statistics</a></li>
-                <li class="list-group-item"><a href="#">Learner's Panel</a></li>
+            <ul class="list-group list-group-flush" style="background: black;">
+                <li class="list-group-item" style="background: #212529;"><a href="#">Local Chapter Statistics</a></li>
+                <li class="list-group-item" style="background: #212529;"><a href="#">Learner's Panel</a></li>
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Email-Id</a>
@@ -141,7 +146,14 @@
                                     <h5 class="modal-title" id="exampleModalLabel">Upload data</h5>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <label for="fileInputEmail1" class="form-label">Add all Enrollments file</label>
+                                    <input type="file" class="form-control" id="exampleInputfile1" aria-describedby="emailHelp">
+                                    <label for="fileInputEmail2" class="form-label">Add all Faculty Enrollments file</label>
+                                    <input type="file" class="form-control" id="exampleInputfile2" aria-describedby="emailHelp">
+                                    <label for="fileInputEmail3" class="form-label">Add all Registrations file</label>
+                                    <input type="file" class="form-control" id="exampleInputfile3" aria-describedby="emailHelp">
+                                    <label for="fileInputEmail4" class="form-label">Add all Certifications file</label>
+                                    <input type="file" class="form-control" id="exampleInputfile4" aria-describedby="emailHelp">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

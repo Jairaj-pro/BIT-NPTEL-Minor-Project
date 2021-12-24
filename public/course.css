@@ -1,22 +1,22 @@
-.top_button button {
-    height: 40px;
-    width: 150px;
-    left: 300px;
+
+body{
     position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
-.top_button {
-    margin-right: 10px;
+.top_button button {
+    height: 200%;
+    width: 10%;
+    left:45%;
+    overflow: hidden;
+    position: relative;
 }
 
 #spoc-pic {
     margin-top: 20px;
     margin-left: 10px;
     border-radius: 200px;
-}
-
-#topCoursesButton {
-    height: 40px;
 }
 
 .btn-close {
