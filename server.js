@@ -4,7 +4,7 @@ const path = require('path');
 const mysql = require('mysql2');
 const app = express();
 const bodyparser = require('body-parser');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 const session = require('express-session');
 const { v4: uuidv4 } = require("uuid");
 const router = require('./router')
@@ -63,12 +63,12 @@ app.use('/route', router)
 
 //home route
 app.get('/', (req, res) => {
-    res.render('./base', {
+    res.render('./login', {
         title: "Login System",
     })
 
 })
-let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
+let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
 let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
 let seasons = "SELECT season FROM bitnptel.seasons_added order by season desc;"
 
@@ -185,7 +185,7 @@ app.get('/stars', (req, res) => {
 
 //echos directory
 app.get('/echos', (req, res) => {
-    let sql = "SELECT * FROM bitnptel.echos;";
+    let sql = "SELECT id, Department, Representative, Contact, Email FROM bitnptel.echos;";
     db.query(sql, (err, rows, cols) => {
         if (err) {
             throw err
