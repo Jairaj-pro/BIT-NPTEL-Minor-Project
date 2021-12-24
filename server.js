@@ -71,7 +71,7 @@ app.get('/', (req, res) => {
 let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
 let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
 let seasons = "SELECT season FROM bitnptel.seasons_added order by season desc;"
-let query = "select lower(Representative) as Representative, Contact from bitnptel.echos; ";
+
 app.get('/spoc-home', (req, res) => {
     // pie.drawChart(newArray)
     db.query(sql, (err, rows, col) => {
@@ -85,17 +85,6 @@ app.get('/spoc-home', (req, res) => {
             throw err
         }
         out2 = rows
-    })
-    db.query(query,(err,rows,col)=>{
-        if(err){
-            throw err
-        }
-        passwords=[]
-        rows.forEach(element => {
-            first=element['Representative'].slice(0,4)
-            second=element['Contact'].slice(4,8);
-            passwords.push(first+'-'+second);
-        });
     })
     db.query(seasons, (err, rows, col) => {
         if (err) {
@@ -125,6 +114,10 @@ app.get('/spoc-home', (req, res) => {
     })
 })
 
+
+app.get('/spoc-home/:id', function(req, res) {
+    res.send(req.params.id)
+})
 
 app.get('/dspoc-home', (req, res) => {
     res.render('./dspoc')
@@ -160,10 +153,12 @@ app.get("/insert", (req, res) => {
 
 //top courses
 app.get('/topCourses', (req, res) => {
-    // pie.drawChart(newArray)
-    let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
-    let topCourses = "select CourseName, count(CourseName) as Participations FROM bitnptel.`swayam-nptel jan 2018 enrollments`   group by CourseName order by participations desc LIMIT 3";
     year = 2018
+        // pie.drawChart(newArray)
+    let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
+    let topCourses = "select CourseName, count(CourseName) as Participations FROM bitnptel.`swayam-nptel jan " +
+        year + " " + "enrollments`  group by CourseName order by participations desc LIMIT 3";
+
     db.query(sql, (err, rows, columns) => {
         if (err) {
             throw err
