@@ -21,22 +21,25 @@ const spoc_credentials = {
 //     }
 //login
 router.post('/login', (req, res) => {
-    let sql = "select Email, passwords from bitnptel.echos;"
-    let ans;
+    entered ={
+        email:req.body.email,
+        password:req.body.password
+    };
+    //console.log(entered)
+    let sql = "select Email, passwords from bitnptel.echos where Email="+" "+entered.email+" "+"and passwords="+entered.password ;
+    console.log(sql)
     db.query(sql, (err, rows, cols) => {
-        if (err) {
+        if(err){
             throw err
+            // res.end('Incorrect email or password')
         }
-        if (req.body.r2 == 'on') {
-            rows.forEach(element => {
-                if (element.Email == req.body.email) {
-                    if (element.passwords == req.body.passwords) {
-                        res.redirect('/new')
-                    }
-                }
-            });
-        } else if (req.body.email == spoc_credentials.email && req.body.password == spoc_credentials.password) {
-            if (req.body.r1 == 'on') {
+        else if (req.body.r2 == 'on') {
+            if(rows.password == entered.password && rows.email == entered.email){
+                res.redirect('/new'); 
+            }
+        }
+        else if (req.body.r1 == 'on') {
+            if (req.body.email == spoc_credentials.email && req.body.password == spoc_credentials.password) {     
                 console.log(req)
                 res.redirect('/spoc-home')
             }
@@ -45,8 +48,9 @@ router.post('/login', (req, res) => {
 
             res.end("Invalid username or password")
         }
+        })
+        
     })
-})
 
 
 
