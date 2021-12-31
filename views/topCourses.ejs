@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-</head>
+    <link href="../public/topCourses.css" rel="stylesheet" type="text/css" /> </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -42,20 +42,37 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stars.hbs">NPTEL Stars
+                    <a class="nav-link" href="stars.hbs">
+                        NPTEL Stars
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Courses
+                Disciplines
               </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Course 1</a>
-                        <a class="dropdown-item" href="#">Course 2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Course 3</a>
+                        <% 
+                        disciplines.forEach(function(element) { %>
+                            <a class="dropdown-item" href="/<%=element.Department%>">
+                                <%=element.Department%>
+                            </a>
+                            <% }); %>
                     </div>
                 </li>
+            </ul>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-1">
+                    <div class="chapter-name">
+                        <img src="../public/431_Logo.png" />
+                        <% 
+                data.forEach(function(element) { %>
+                            <a class="nav-link">
+                                <%=element.CollegeName%>
+                            </a>
+                            <% }); %>
+                    </div>
+                </form>
+            </li>
             </ul>
         </div>
     </nav>
@@ -84,7 +101,7 @@
                 <a href="#" class="card-link">Find Here</a>
             </div>
         </div>
-        <div class="card text-center" style="float:left;width:83%; ">
+        <div class="card text-center" style="float:left;width:81%; ">
             <div class="card-header ">
                 <p>Top 3 Courses of
                     <%=year%>
@@ -100,7 +117,7 @@
                                 <%=element.CourseName%>
                             </h5>
                             <p class="card-text ">Course Description</p>
-                            <a href="# " class="btn btn-primary ">Visit</a>
+                            <a href="https://swayam.gov.in/explorer?searchText=<%=element.CourseName%>" class=" btn btn-primary ">Visit</a>
                         </div>
                     </div>
                     <% }); %>

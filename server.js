@@ -68,10 +68,10 @@ app.get('/', (req, res) => {
     })
 
 })
-let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
+let sql = "SELECT name, CollegeName, CollegeID FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
 let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
-let seasons = "SELECT season FROM bitnptel.seasons_added order by season desc;"
-
+let seasons = "SELECT season FROM bitnptel.seasons_added order by right(season,4) asc;"
+let dp = "SELECT distinct(Department) from bitnptel.tn order by Department ASC;"
 app.get('/spoc-home', (req, res) => {
     // pie.drawChart(newArray)
     db.query(sql, (err, rows, col) => {
@@ -86,6 +86,12 @@ app.get('/spoc-home', (req, res) => {
         }
         out2 = rows
     })
+    db.query(dp, (err, rows, cols) => {
+        if (err) {
+            throw err
+        }
+        out4 = rows;
+    })
     db.query(seasons, (err, rows, col) => {
         if (err) {
             throw err
@@ -95,6 +101,7 @@ app.get('/spoc-home', (req, res) => {
             'data': out1,
             'out2': out2,
             'season': out3,
+            'disciplines': out4,
             list: [
                 [JSON.stringify('Year'), JSON.stringify('Enrollments'), JSON.stringify('Registrations'), JSON.stringify('Succesful-Completion')],
                 [JSON.stringify('July-2019'), 1000, 400, 200],
@@ -130,7 +137,6 @@ app.get("/createtable", (req, res) => {
             if (err) {
                 throw err;
             }
-            console.log(result)
             res.send("SPOC table created")
         })
     })
@@ -153,8 +159,9 @@ app.get("/insert", (req, res) => {
 
 //top courses
 app.get('/topCourses', (req, res) => {
-    year = 2018
-        // pie.drawChart(newArray)
+    year = 2018;
+    // pie.drawChart(newArray)
+    let dp = "SELECT distinct(Department) from bitnptel.tn;"
     let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
     let topCourses = "select CourseName, count(CourseName) as Participations FROM bitnptel.`swayam-nptel jan " +
         year + " " + "enrollments`  group by CourseName order by participations desc LIMIT 3";
@@ -165,15 +172,21 @@ app.get('/topCourses', (req, res) => {
         }
         result = rows
     })
-
+    db.query(dp, (err, rows, cols) => {
+        if (err) {
+            throw err
+        }
+        out4 = rows;
+    })
     db.query(topCourses, (err, rows, columns) => {
         if (err) {
             throw err
         }
         res.render('./topCourses', {
-            data: result,
-            year: year,
-            courses: rows
+            'disciplines': out4,
+            'data': result,
+            'year': year,
+            'courses': rows
         })
     })
 })

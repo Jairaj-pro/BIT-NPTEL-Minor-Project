@@ -1,11 +1,3 @@
-.top_button button {
-    height: 200%;
-    width: 10vw;
-    left: 45%;
-    overflow: hidden;
-    position: relative;
-}
-
 .chapter-name img {
     float: left;
     top: 15px;
@@ -29,18 +21,4 @@
 .chapter-name a:hover {
     color: white;
     text-decoration: underline;
-}
-
-#spoc-pic {
-    margin-top: 20px;
-    margin-left: 10px;
-    border-radius: 200px;
-}
-
-.btn-close {
-    border: none;
-}
-
-.card-body {
-    float: left;
 }
