@@ -1,11 +1,16 @@
 form {
-    position: absolute;
+    position: relative;
     top: 5%;
     left: 35%;
     width: 30%;
     height: 100%;
     padding: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-group {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 #exampleInputEmail1,
@@ -34,10 +39,9 @@ img {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-button {
+#submit-button {
     background-color: rgb(173, 104, 48);
     color: white;
-    float: left;
     height: 50px;
     width: 100px;
     border: none;
@@ -45,7 +49,7 @@ button {
     border-radius: 2px;
 }
 
-button:hover {
+#submit-button:hover {
     background-color: white;
     border: 1px solid rgb(173, 104, 48);
     transition: 0.5s;
@@ -55,12 +59,9 @@ button:hover {
 .form-check {
     float: left;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .role {
     margin-bottom: 10px;
-}
-
-#submit-button {
-    margin-top: 40px;
 }

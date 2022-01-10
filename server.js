@@ -33,6 +33,7 @@ app.use(session({
 
 app.listen(port, () => {
     console.log("listening on port " + port)
+    console.log('localhost:' + port);
 });
 
 //connecting to database
@@ -63,8 +64,17 @@ app.use('/route', router)
 
 //home route
 app.get('/', (req, res) => {
-    res.render('./login', {
-        title: "Login System",
+    let dp = "SELECT distinct(Department) from bitnptel.tn order by Department ASC;"
+    db.query(dp, (err, rows, cols) => {
+        if (err) {
+            throw err
+        }
+        out4 = rows;
+        res.render('./login', {
+            disciplines: out4,
+            display: 'none',
+            title: "Login System",
+        })
     })
 
 })
@@ -158,19 +168,21 @@ app.get("/insert", (req, res) => {
 })
 
 //top courses
-app.get('/topCourses', (req, res) => {
+app.all('/topCourses', (req, res) => {
     year = 2018;
+    let limit = req.body.number;
     // pie.drawChart(newArray)
     let dp = "SELECT distinct(Department) from bitnptel.tn;"
-    let sql = "SELECT name, CollegeName FROM SPOCS WHERE CollegeName = 'BIT DURG'";
+    let sql = "SELECT name, CollegeName, CollegeID FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
     let topCourses = "select CourseName, count(CourseName) as Participations FROM bitnptel.`swayam-nptel jan " +
-        year + " " + "enrollments`  group by CourseName order by participations desc LIMIT 3";
-
+        year + " " + "enrollments`  group by CourseName order by participations desc LIMIT " + limit;
     db.query(sql, (err, rows, columns) => {
         if (err) {
             throw err
         }
-        result = rows
+        console.log(rows);
+        result = rows;
+
     })
     db.query(dp, (err, rows, cols) => {
         if (err) {

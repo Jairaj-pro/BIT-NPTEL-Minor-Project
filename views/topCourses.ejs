@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enrolments<span class="sr-only"></span></a>
+                    <a class="nav-link" href="#">Enrollments<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">FDP
@@ -46,34 +46,24 @@
                         NPTEL Stars
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Disciplines
-              </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <% 
-                        disciplines.forEach(function(element) { %>
-                            <a class="dropdown-item" href="/<%=element.Department%>">
-                                <%=element.Department%>
-                            </a>
-                            <% }); %>
-                    </div>
-                </li>
             </ul>
             <li class="nav-item">
-                <form class="form-inline my-2 my-lg-1">
-                    <div class="chapter-name">
-                        <img src="../public/431_Logo.png" />
-                        <% 
+                <div class="chapter-name">
+                    <img src="../public/431_Logo.png" />
+                    <% 
                 data.forEach(function(element) { %>
-                            <a class="nav-link">
-                                <%=element.CollegeName%>
-                            </a>
-                            <% }); %>
-                    </div>
-                </form>
+                        <a class="nav-link">
+                            <%=element.CollegeName%>
+                        </a>
+                        <% }); %>
+                </div>
             </li>
             </ul>
+        </div>
+        <div class="submit-button">
+            <button type="button" class="btn btn-success" onclick="location.href='/ ' " aria-expanded="false ">
+              Login
+            </button>
         </div>
     </nav>
     <div class="wrapper">
@@ -91,10 +81,22 @@
                     </p>
                     <% }); %>
             </div>
-            <ul class="list-group list-group-flush " style="color: black;">
-                <li class="list-group-item"><a href="#">Local Chapter Statistics</a></li>
-                <li class="list-group-item"><a href="#">Discipline Wise Statistics</a></li>
-                <li class="list-group-item"><a href="#">Learner's Panel</a></li>
+            <ul class="list-group list-group-flush " style="background: black;">
+                <li class="list-group-item" style="background: #212529; "><a href="#">Local Chapter Statistics</a></li>
+                <li class="list-group-item" style="background: #212529; "><a href="#">Learner's Panel</a></li>
+                <div class="btn-group dropend ">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Disciplines
+                    </button>
+                    <ul class="dropdown-menu">
+                        <% 
+                        disciplines.forEach(function(element) { %>
+                            <li class="dropdown-item" href="/<%=element.Department%>">
+                                <%=element.Department%>
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Email-Id</a>
@@ -110,14 +112,14 @@
             <div class="card-body ">
                 <% 
                 courses.forEach(function(element) { %>
-                    <div class="card " style="width: 18rem; float:left; margin:auto; padding:15px; ">
-                        <img src="../public/courseImg.jfif " class="card-img-top " alt="Arpana Maam ">
+                    <div class="card " style="width: 18rem; float:left; margin:auto; padding:15px;">
+                        <img src="../public/courseImg.jfif " class="card-img-top " alt="Arpana Maam">
                         <div class="card-body ">
                             <h5 class="card-title ">
                                 <%=element.CourseName%>
                             </h5>
                             <p class="card-text ">Course Description</p>
-                            <a href="https://swayam.gov.in/explorer?searchText=<%=element.CourseName%>" class=" btn btn-primary ">Visit</a>
+                            <a href="https://swayam.gov.in/explorer?searchText=<%=element.CourseName%>" class=" btn btn-primary">Visit</a>
                         </div>
                     </div>
                     <% }); %>
