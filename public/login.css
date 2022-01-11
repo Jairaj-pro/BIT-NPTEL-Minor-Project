@@ -1,13 +1,10 @@
-
-
 body {
   font-family: "Lato", sans-serif;
 }
 
-.main-head{
+.main-head {
   height: 150px;
-  background: #FFF;
- 
+  background: #fff;
 }
 
 .sidenav {
@@ -18,78 +15,78 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .sidenav img {
   flex-shrink: 0;
   min-width: 100%;
-  min-height: 100%
+  min-height: 100%;
 }
-
 
 .main {
   position: relative;
   padding: 0px 10px;
 }
-
+/* 
 .login-form {
   margin-left: 50px;
-}
-
-
+} */
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
+  .sidenav {
+    padding-top: 15px;
+  }
 }
 
 @media screen and (max-width: 450px) {
-  .login-form{
-      margin-top: 10%;
+  .login-form {
+    margin-top: 10%;
   }
 
-  .register-form{
-      margin-top: 10%;
+  .register-form {
+    margin-top: 10%;
   }
 }
 
-@media screen and (min-width: 768px){
-  .main{
-      margin-left: 40%; 
+@media screen and (min-width: 768px) {
+  .main {
+    margin-left: 45%;
   }
 
-  .sidenav{
-      width: 40%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
+  .sidenav {
+    width: 65%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
   }
 
-  .login-form{
-      margin-top: 20%;
+  .login-form {
+    margin-top: 5%;
   }
 
-  .register-form{
-      margin-top: 20%;
+  .register-form {
+    margin-top: 5%;
   }
 }
 
 form {
-  width: 23rem;
+  width: 24rem;
 }
 
-.login-main-text{
-  margin-top: 20%;
+.login-main-text {
+  margin-top: 5%;
   padding: 60px 0 20px 0;
   color: rgb(32, 32, 32);
 }
 
-.login-main-text h2{
+.login-main-text h2 {
   font-weight: 500;
 }
 
-.btn-black{
+#submit-button {
   background-color: rgb(27, 101, 197) !important;
   color: #fff;
+  display: block;
 }

@@ -2,12 +2,20 @@ var express = require("express")
 const mysql = require('mysql2');
 const session = require('express-session');
 var router = express.Router();
+
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'jairaj2002',
+    user: 'mkso',
+    password: 'lu',
     database: 'bitnptel'
 });
+
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'jairaj2002',
+//     database: 'bitnptel'
+// });
 
 router.use((req, res, next) => {
     res.locals.display = req.session.display
@@ -35,12 +43,14 @@ router.post('/login', (req, res) => {
         }
         spocx = rows;
     })
-    if (req.body.email == spoc_credentials.email && req.body.password == spoc_credentials.password && req.body.r1 == 'on') {
+
+    if (req.body.email == spoc_credentials.email && req.body.password == spoc_credentials.password && req.body.action == "spoc") {
         //req.session.user = req.body.email;
-        console.log(spocx);
+        //console.log(spocx);
+        //console.log(req.body.action);
         res.redirect('/spoc-home')
             //res.end("Login successful")
-    } else if (req.body.email == dspoc_credentials.email && req.body.password == dspoc_credentials.password && req.body.r2 == 'on') {
+    } else if (req.body.email == dspoc_credentials.email && req.body.password == dspoc_credentials.password && req.body.action == "dspoc") {
         let discipline = req.body.discipline
         let user = "select * from bitnptel.echos where Department = '" + discipline + "'"
         let seasons = "SELECT season FROM bitnptel.seasons_added order by right(season,4) asc;"
@@ -95,7 +105,7 @@ router.post('/login', (req, res) => {
         })
     } else {
         let dp = "SELECT distinct(Department) from bitnptel.tn order by Department ASC;"
-        req.session.display = 'block'
+        //req.session.display = 'none'
         db.query(dp, (err, rows, cols) => {
             if (err) {
                 throw err

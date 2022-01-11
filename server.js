@@ -4,7 +4,7 @@ const path = require('path');
 const mysql = require('mysql2');
 const app = express();
 const bodyparser = require('body-parser');
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 const session = require('express-session');
 const { v4: uuidv4 } = require("uuid");
 const router = require('./router')
@@ -19,10 +19,16 @@ app.use("/javascripts", express.static(path.join(__dirname, "javascripts")))
 //creating connection to mysql
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'jairaj2002',
+    user: 'mkso',
+    password: 'lu',
     database: 'bitnptel'
 });
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'jairaj2002',
+//     database: 'bitnptel'
+// });
 
 app.use(session({
     secret: uuidv4(),
@@ -78,7 +84,7 @@ app.get('/', (req, res) => {
     })
 
 })
-let sql = "SELECT name, CollegeName, CollegeID FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
+let sql = "SELECT name, CollegeName, CollegeID FROM spocs WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
 let sql2 = "select count(distinct(`bitd enroll even 2019 final`.`College Roll Number`)) as enrols from bitnptel.`bitd enroll even 2019 final`;"
 let seasons = "SELECT season FROM bitnptel.seasons_added order by right(season,4) asc;"
 let dp = "SELECT distinct(Department) from bitnptel.tn order by Department ASC;"
