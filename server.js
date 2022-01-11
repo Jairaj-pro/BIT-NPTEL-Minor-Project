@@ -179,7 +179,7 @@ app.all('/topCourses', (req, res) => {
     let limit = req.body.number;
     // pie.drawChart(newArray)
     let dp = "SELECT distinct(Department) from bitnptel.tn;"
-    let sql = "SELECT name, CollegeName, CollegeID FROM SPOCS WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
+    let sql = "SELECT name, CollegeName, CollegeID FROM spocs WHERE CollegeName = 'Bhilai Institute of Technology, Durg'";
     let topCourses = "select CourseName, count(CourseName) as Participations FROM bitnptel.`swayam-nptel jan " +
         year + " " + "enrollments`  group by CourseName order by participations desc LIMIT " + limit;
     db.query(sql, (err, rows, columns) => {
